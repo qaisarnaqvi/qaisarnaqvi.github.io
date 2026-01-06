@@ -3,13 +3,7 @@ title: "Teaching & Curriculum"
 description: "Courses taught and curriculum development initiatives."
 slug: "teaching"
 date: 2026-01-02
-menu:
-    main:
-        weight: 4
-        params:
-            icon: chalkboard
 ---
-
 ## Curriculum Development
 As Chairman of the Department of Electronics, Prof. Naqvi **initiated the 4-year BS-Electronics programme** and designed specialized courses including *Numerical Electromagnetics* and *Metamaterials*.
 
@@ -22,8 +16,7 @@ As Chairman of the Department of Electronics, Prof. Naqvi **initiated the 4-year
 * Fundamentals of Electromagnetic Metamaterials
 * High Frequency Electromagnetics
 * Numerical Electromagnetics
-* Antennas
-* Mathematical Methods
+* Antennas & Mathematical Methods
 
 ### Graduate (M.Sc.)
 * Electromagnetic Theory

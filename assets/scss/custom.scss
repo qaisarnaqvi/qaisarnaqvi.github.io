@@ -1,3 +1,198 @@
-/*
-    You can add your own custom styles here.
-*/
+/* --- 1. ACADEMIC COLORS & FONTS --- */
+:root {
+    --body-background: #ffffff !important; /* Stark White */
+    --card-background: #ffffff !important;
+    --card-border-radius: 0px !important;  /* Sharp corners */
+    --card-box-shadow: none !important;    /* No floating effect */
+    
+    --primary: #5d001e !important;   /* Deep Academic Maroon */
+    --secondary: #9a0033 !important; /* Lighter Accent */    /* Academic Red accent */
+    --text-color: #2a2a2a !important;      /* CHANGED: Set main text to Dark Gray (not white) so it shows on white pages */
+    
+    /* Fonts: Authoritative Serif for Headings */
+    --font-family-article: "Georgia", "Times New Roman", Times, serif; 
+    --font-family-heading: "Georgia", "Times New Roman", Times, serif;
+}
+
+/* --- 2. LAYOUT: REMOVE "BLOG" FEEL --- */
+
+/* Remove the gap between the sidebar and content */
+.container {
+    max-width: 1400px !important;
+    gap: 0 !important;
+}
+
+/* Fix the Body Text */
+body {
+    font-family: "Arial", "Helvetica", sans-serif;
+    font-size: 16px;
+    color: #000000 !important; /* Force black text on body */
+}
+
+/* Make Headings Serif and Navy Blue */
+h1, h2, h3, h4 {
+    font-family: var(--font-family-heading);
+    color: var(--primary);
+    font-weight: 700;
+    margin-top: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+/* --- 3. SIDEBAR TRANSFORMATION (NAVY BLUE RAIL) --- */
+
+aside.sidebar {
+    background-color: var(--primary) !important; /* Navy Blue Background */
+    color: #ffffff !important;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 2rem;
+    border-right: 5px solid #ffffff; /* Added white separator line */
+}
+
+/* --- FIX: FORCE NAME & BIO TEXT TO WHITE --- */
+/* This specific block fixes the grey name issue */
+aside.sidebar .site-name, 
+aside.sidebar .site-name a {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Force Bio/Subtitle to White */
+aside.sidebar .subtitle, 
+aside.sidebar h2, 
+aside.sidebar p {
+    color: #ffffff !important;
+    opacity: 0.9 !important;
+}
+
+/* Force Social Icons (Scholar, Email) to White */
+aside.sidebar .social-menu li a {
+    color: #ffffff !important;
+}
+
+/* Sidebar Menu Links */
+aside.sidebar .menu li a {
+    color: #e0e0e0 !important;
+    font-family: "Arial", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    border-radius: 0;
+}
+
+aside.sidebar .menu li a:hover,
+aside.sidebar .menu li.current a {
+    background: rgba(255,255,255,0.1) !important;
+    color: #fff !important;
+    border-left: 4px solid #fff;
+}
+
+/* Hide the "Hamburger" menu on desktop */
+.toggle-menu {
+    display: none !important;
+}
+
+/* --- 4. CONTENT AREA CLEANUP --- */
+main.main {
+    padding: 3rem !important;
+    background: #fff;
+    border-left: 1px solid #ddd;
+}
+
+/* Fix the Publication List styling */
+.article-content ul li {
+    list-style-type: square;
+    margin-bottom: 0.8rem;
+}
+
+/* --- 5. HIDE RIGHT SIDEBAR & EXPAND CONTENT --- */
+.right-sidebar {
+    display: none !important;
+    width: 0 !important;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        /* Force layout to 2 columns: [Sidebar 300px] [Content 1fr] */
+        grid-template-columns: 320px 1fr !important;
+        gap: 0px !important;
+    }
+}
+
+/* --- FIX SIDEBAR SPACING --- */
+aside.sidebar .menu li {
+    margin-bottom: 15px !important; /* Adds space between items */
+}
+
+aside.sidebar .menu li a {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adds space between Icon and Text */
+    line-height: 1.4;
+    padding: 5px 0;
+}
+
+/* Fix Icon Sizing */
+aside.sidebar .menu li a svg {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px; /* Prevents icon from shrinking */
+}/* --- NUCLEAR FIX FOR WHITE ICONS --- */
+/* This targets every single part of the SVG icon to force it white */
+
+aside.sidebar .social-menu li a {
+    color: #ffffff !important;
+}
+
+aside.sidebar .social-menu li a svg,
+aside.sidebar .social-menu li a svg path,
+aside.sidebar .social-menu li a svg circle,
+aside.sidebar .social-menu li a svg rect,
+aside.sidebar .social-menu li a svg line,
+aside.sidebar .social-menu li a svg polyline {
+    fill: #ffffff !important;   /* Fills solid shapes like GitHub/Scholar */
+    stroke: #ffffff !important; /* Colors lines like Mail/Link */
+    color: #ffffff !important;  /* Backup text color */
+}
+
+/* Fix the Text Links in the Main Menu too */
+aside.sidebar .menu li a {
+    color: #ffffff !important;
+}
+
+aside.sidebar .menu li a svg {
+    stroke: #ffffff !important;
+    fill: none !important; /* Menu icons are usually outlines */
+}
+/* --- FIX: COMPLETELY HIDE RELATED CONTENT (Title + Cards) --- */
+.related-content-wrapper, 
+.related-content--wrapper,
+aside.related-content {
+    display: none !important;
+}
+
+/* Extra safety: Hide the section title specifically if the above doesn't catch it */
+.section-title {
+    /* Only hide if it's inside a related-content block (handled by parent hiding), 
+       but if the theme puts it outside, we might need to target the specific area. 
+       The code above usually handles it for the Stack theme. */
+}
+/* --- FIX: MAKE SIDEBAR ICONS BRIGHT WHITE --- */
+.social-menu li a {
+    color: #ffffff !important; /* Sets the text/icon color to white */
+    opacity: 1 !important;     /* Removes the default dimming effect */
+}
+
+/* Ensure the SVG icons actually take the color */
+.social-menu li a svg {
+    fill: #ffffff !important;  /* For solid icons like ResearchGate */
+    stroke: #ffffff !important; /* For line icons like Email */
+}
+
+/* Fix for the Email icon specifically (so it doesn't turn into a solid blob) */
+.social-menu li a svg.feather {
+    fill: none !important;
+    stroke: #ffffff !important;
+}

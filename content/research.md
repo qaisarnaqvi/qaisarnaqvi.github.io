@@ -1,13 +1,8 @@
 ---
 title: "Research & Innovative Ideas"
-description: "Research interests, grants, and contributions to Electromagnetics."
+description: "Research interests, metrics, and professional service."
 slug: "research"
 date: 2026-01-02
-menu:
-    main:
-        weight: 2
-        params:
-            icon: microscope
 ---
 
 ## Innovative Contributions

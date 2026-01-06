@@ -1,0 +1,204 @@
+{{ define "main" }}
+    <div class="container main-container">
+        <main class="main-content">
+            
+            <div class="hero-carousel">
+                <div class="slide active-slide" style="background-image: url('/img/chalkboard.jpg');">
+                    <div class="slide-overlay">
+                        <h1>Prof. Dr. Qaisar Abbas Naqvi</h1>
+                        <p>Tenured Professor of Electronics | Quaid-i-Azam University</p>
+                    </div>
+                </div>
+
+                <div class="slide" style="background-image: url('/img/slide2.jpg'); background-size: contain; background-repeat: no-repeat; background-position: center; background-color: #1a1a1a;">
+                    <div class="slide-overlay">
+                        <h1>High-Impact Research</h1>
+                        <p>Author of the seminal Springer text: <i>"Electromagnetic Fields and Waves in Fractional Dimensional Space"</i>.</p>
+                    </div>
+                </div>
+
+                <div class="slide" style="background-image: url('/img/slide3.jpg');">
+                    <div class="slide-overlay">
+                        <h1>Academic Leadership</h1>
+                        <p>Chairing the Computational Electromagnetics Group at Quaid-i-Azam University.</p>
+                    </div>
+                </div>
+
+                <button class="prev-btn" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next-btn" onclick="moveSlide(1)">&#10095;</button>
+                <div class="carousel-dots">
+                    <span class="dot active-dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+
+            <div class="engheta-grid">
+                
+                <div class="col-welcome">
+                    <h3>Welcome to Our Group</h3>
+                    <p>
+                        Our group is interested in the science and technology of <b>Electromagnetic Fields and Waves</b>. 
+                        We explore a variety of research scenarios in wave-matter interaction, focusing on complex media and mathematical modeling.
+                    </p>
+                    <p>
+                        Our primary research foci include <b>Fractional Electromagnetics</b>, <b>Metamaterials</b> (Chiral, Lorentz-Drude), and <b>High-Frequency Techniques</b>. 
+                    </p>
+                    <p>
+                        For a detailed list of our work, please refer to the <a href="/research/">Research</a> page. 
+                        Our group is housed in the Department of Electronics at Quaid-i-Azam University, Islamabad.
+                    </p>
+                </div>
+
+                <div class="col-personal">
+                    <h3>A Personal Message</h3>
+                    <div class="personal-card">
+                        <img src="/img/avatar.jpeg" alt="Prof. Naqvi">
+                        <div class="personal-text">
+                            <strong>Prof. Dr. Qaisar Abbas Naqvi</strong><br>
+                            <span style="font-size: 0.85rem; color: #666;">Tenured Professor</span>
+                        </div>
+                    </div>
+                    <p>
+                        "I first became fascinated with electromagnetics during my early studies. The curiosity about how waves interact with complex geometries led me into the science of fractional dimensional spaces and metamaterials.
+                    </p>
+                    <p>
+                        Today, my group works extensively on mathematical models that have potential applications in both civil and military domains. We welcome collaboration with colleagues all over the world."
+                    </p>
+                </div>
+
+                <div class="col-news">
+                    <h3>News & Highlights</h3>
+                    
+                    <div class="news-item">
+                        <div class="news-date">Nov 2024</div>
+                        <div class="news-content">
+                            <strong>Invited Talk: Shanghai</strong><br>
+                            Delivered a keynote at the Shanghai Conference on Solar Energy regarding wave propagation.
+                        </div>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-date">2022</div>
+                        <div class="news-content">
+                            <strong>PAS Gold Medal</strong><br>
+                            Awarded the prestigious Pakistan Academy of Sciences Gold Medal in Engineering Sciences.
+                        </div>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-date">2022</div>
+                        <div class="news-content">
+                            <strong>SPIE Award</strong><br>
+                             Honored with the SPIE Diversity Outreach Award for contributions to optics education.
+                        </div>
+                    </div>
+                    
+                    <a href="/post/" class="more-news-btn">View All News &rarr;</a>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <style>
+        /* CAROUSEL STYLES */
+        .hero-carousel {
+            position: relative; width: 100%; height: 400px;
+            overflow: hidden; border-radius: 8px; margin-bottom: 50px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); background: #000;
+        }
+        .slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover; background-position: center;
+            opacity: 0; transition: opacity 0.8s ease-in-out;
+        }
+        .active-slide { opacity: 1; }
+        .slide-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(to top, rgba(93, 0, 30, 0.9), transparent);
+            padding: 40px; color: white;
+        }
+        .slide-overlay h1 { font-family: "Georgia", serif; font-size: 2rem; margin: 0 0 10px 0; color: #fff;}
+        .slide-overlay p { font-size: 1.1rem; color: #f0f0f0; margin: 0; }
+        
+        /* Navigation Buttons */
+        .prev-btn, .next-btn {
+            cursor: pointer; position: absolute; top: 50%; width: auto; padding: 16px;
+            margin-top: -22px; color: white; font-weight: bold; font-size: 18px;
+            border: none; background-color: rgba(0,0,0,0.3);
+        }
+        .next-btn { right: 0; } .prev-btn { left: 0; }
+        .carousel-dots { position: absolute; bottom: 15px; width: 100%; text-align: center; }
+        .dot { height: 12px; width: 12px; margin: 0 4px; background-color: #bbb; border-radius: 50%; display: inline-block; cursor: pointer; }
+        .active-dot { background-color: #5d001e; border: 2px solid white; }
+
+
+        /* --- 3-COLUMN LAYOUT STYLES --- */
+        .engheta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr; 
+            gap: 40px;
+            font-family: "Georgia", "Times New Roman", serif;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .engheta-grid h3 {
+            font-family: "Arial", sans-serif;
+            font-weight: 700;
+            color: #333;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #5d001e;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .col-welcome p { margin-bottom: 15px; font-size: 0.95rem; text-align: justify; }
+        .col-welcome a { color: #5d001e; font-weight: bold; text-decoration: none; }
+
+        .personal-card { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .personal-card img {
+            width: 70px; height: 70px; border-radius: 5px; object-fit: cover;
+            border: 1px solid #ddd;
+        }
+        .col-personal p { font-style: italic; color: #555; font-size: 0.95rem; }
+
+        .news-item { display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .news-date {
+            font-family: "Arial", sans-serif; font-weight: bold; color: #5d001e;
+            font-size: 0.85rem; min-width: 60px;
+        }
+        .news-content { font-size: 0.9rem; line-height: 1.4; }
+        .more-news-btn {
+            display: inline-block; background: #333; color: #fff; padding: 5px 10px;
+            font-size: 0.8rem; text-decoration: none; border-radius: 3px;
+        }
+
+        @media (max-width: 900px) {
+            .engheta-grid { grid-template-columns: 1fr; gap: 30px; }
+            .hero-carousel { height: 250px; }
+            .slide-overlay h1 { font-size: 1.5rem; }
+        }
+    </style>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        let slideInterval = setInterval(function() { moveSlide(1); }, 5000);
+
+        function moveSlide(n) { showSlides(slideIndex += n); resetTimer(); }
+        function currentSlide(n) { showSlides(slideIndex = n); resetTimer(); }
+        function showSlides(n) {
+            let i; let slides = document.getElementsByClassName("slide"); let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1} if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) { slides[i].classList.remove("active-slide"); }
+            for (i = 0; i < dots.length; i++) { dots[i].classList.remove("active-dot"); }
+            slides[slideIndex-1].classList.add("active-slide"); dots[slideIndex-1].classList.add("active-dot");
+        }
+        function resetTimer() { clearInterval(slideInterval); slideInterval = setInterval(function() { moveSlide(1); }, 5000); }
+    </script>
+{{ end }}

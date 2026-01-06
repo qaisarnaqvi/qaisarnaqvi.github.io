@@ -1,0 +1,29 @@
+<footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        {{ now.Format "2006" }} 
+        <strong>{{ .Site.Title }}</strong>
+    </section>
+
+    <section class="powerby">
+        Department of Electronics | Quaid-i-Azam University, Islamabad
+    </section>
+</footer>
+
+<style>
+    /* Optional: Center the footer and give it some space */
+    .site-footer {
+        text-align: center;
+        margin-top: 50px;
+        padding: 20px 0;
+        border-top: 1px solid #eee;
+        font-size: 0.9rem;
+        color: #666;
+    }
+    
+    .site-footer .copyright {
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+    }
+</style>

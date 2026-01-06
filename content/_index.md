@@ -1,8 +1,9 @@
 ---
+title: "Home"
+description: "Research Group Home"
 menu:
     main:
-        name: Home
-        weight: 1
-        params:
+        weight: -10
+        params: 
             icon: home
 ---

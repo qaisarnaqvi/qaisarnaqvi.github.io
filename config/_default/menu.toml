@@ -1,24 +1,72 @@
-# Configure main menu and social menu
-#[[main]]
-#identifier = "home"
-#name = "Home"
-#url = "/"
-#[main.params]
-#icon = "home"
-#newtab = true
+# --- MAIN MENU (Navigation) ---
+
+[[main]]
+    identifier = "news"
+    name = "News"
+    url = "/post/"
+    weight = 4
+    params = { icon = "search" }
+
+[[main]]
+    identifier = "research"
+    name = "Research"
+    url = "/research/"
+    weight = 2
+    params = { icon = "search" }
+
+[[main]]
+    identifier = "publications"
+    name = "Publications"
+    url = "/publications/"
+    weight = 3
+    params = { icon = "book" }
+
+[[main]]
+    identifier = "teaching"
+    name = "Teaching"
+    url = "/teaching/"
+    weight = 4
+    params = { icon = "chalkboard" }
+
+[[main]]
+    identifier = "group"
+    name = "Research Group"
+    url = "/group/"
+    weight = 5
+    params = { icon = "user" }
+
+
+# --- SOCIAL MENU (Sidebar Icons) ---
+# We are putting these back here so they show up!
 
 [[social]]
-identifier = "github"
-name = "GitHub"
-url = "https://github.com/CaiJimmy/hugo-theme-stack"
-
-[social.params]
-icon = "brand-github"
+    identifier = "email"
+    name = "Email"
+    url = "mailto:qaisar@qau.edu.pk"
+    weight = 1
+    [social.params]
+        icon = "mail"
 
 [[social]]
-identifier = "twitter"
-name = "Twitter"
-url = "https://twitter.com"
+    identifier = "scholar"
+    name = "Google Scholar"
+    url = "https://scholar.google.com.pk/citations?user=G3jJymsAAAAJ&hl=en"
+    weight = 2
+    [social.params]
+        icon = "google-scholar" 
 
-[social.params]
-icon = "brand-twitter"
+[[social]]
+    identifier = "researchgate"
+    name = "ResearchGate"
+    url = "https://www.researchgate.net/profile/Q_Naqvi"
+    weight = 3
+    [social.params]
+        icon = "researchgate"
+
+[[social]]
+    identifier = "orcid"
+    name = "ORCID"
+    url = "https://orcid.org/0000-0003-4972-6411"
+    weight = 4
+    [social.params]
+        icon = "orcid"
