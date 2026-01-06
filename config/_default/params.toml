@@ -5,30 +5,29 @@ rssFullContent = true
 favicon = "/favicon.png"
 
 [footer]
-since = 2020
-customText = ""
+since = 2025
+customText = "Prof. Dr. Qaisar Abbas Naqvi"
 
 [dateFormat]
 published = "Jan 02, 2006"
 lastUpdated = "Jan 02, 2006 15:04 MST"
 
 [sidebar]
-emoji = "🍥"
-subtitle = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+emoji = ""  # Removed the emoji for a professional look
+subtitle = "Tenured Professor | Dept. of Electronics | Quaid-i-Azam University"
 
 [sidebar.avatar]
 enabled = true
 local = true
-src = "img/avatar.png"
+src = "img/QA-NAQVI Profile Photo.jpeg" # Make sure you upload his photo to assets/img/avatar.jpg
 
 [article]
-headingAnchor = false
-math = false
-readingTime = true
+headingAnchor = true
+math = true  # ENABLED: Crucial for his Engineering/Physics formulas
+readingTime = false # Disabled: CVs don't need "read time"
 
 [article.license]
-enabled = true
-default = "Licensed under CC BY-NC-SA 4.0"
+enabled = false # Disabled: Academic CVs usually don't need a CC license displayed
 
 ## Widgets
 [[widgets.homepage]]
@@ -36,24 +35,23 @@ type = "search"
 
 [[widgets.homepage]]
 type = "archives"
-
 [widgets.homepage.params]
 limit = 5
 
-[[widgets.homepage]]
-type = "categories"
+# I commented these out so the sidebar isn't cluttered with blog categories. 
+# If you want them back, just remove the '#' symbols.
+# [[widgets.homepage]]
+# type = "categories"
+# [widgets.homepage.params]
+# limit = 10
 
-[widgets.homepage.params]
-limit = 10
-
-[[widgets.homepage]]
-type = "tag-cloud"
-
-[widgets.homepage.params]
-limit = 10
+# [[widgets.homepage]]
+# type = "tag-cloud"
+# [widgets.homepage.params]
+# limit = 10
 
 [[widgets.page]]
-type = "toc"
+type = "toc" # Table of Contents (Very useful for his long publication list)
 
 [opengraph.twitter]
 site = ""
@@ -76,7 +74,7 @@ enabled = true
 
 ## Comments
 [comments]
-enabled = true
+enabled = false  # DISABLED: Professional sites typically don't use comments
 provider = "disqus"
 
 [comments.disqusjs]
