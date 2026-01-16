@@ -3,7 +3,7 @@
 [[main]]
     identifier = "news"
     name = "News"
-    url = "/post/"
+    url = "/news/"
     weight = 4
     params = { icon = "search" }
 

@@ -1,0 +1,18 @@
+<table class="honor-roll">
+    <thead>
+        <tr>
+            <th>Year</th>
+            <th>Scholar</th>
+            <th>Current Position</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{ range .Site.Data.students.phd_graduates }}
+        <tr>
+            <td>{{ .year }}</td>
+            <td><strong>{{ .name }}</strong></td>
+            <td>{{ .current_position }}</td>
+        </tr>
+        {{ end }}
+    </tbody>
+</table>

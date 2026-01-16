@@ -1,198 +1,1032 @@
-/* --- 1. ACADEMIC COLORS & FONTS --- */
+/* =========================================
+   0. LOAD FONTS
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:wght@400;700;900&display=swap');
+
+/* =========================================
+   1. CORE VARIABLES
+   ========================================= */
 :root {
-    --body-background: #ffffff !important; /* Stark White */
-    --card-background: #ffffff !important;
-    --card-border-radius: 0px !important;  /* Sharp corners */
-    --card-box-shadow: none !important;    /* No floating effect */
-    
-    --primary: #5d001e !important;   /* Deep Academic Maroon */
-    --secondary: #9a0033 !important; /* Lighter Accent */    /* Academic Red accent */
-    --text-color: #2a2a2a !important;      /* CHANGED: Set main text to Dark Gray (not white) so it shows on white pages */
-    
-    /* Fonts: Authoritative Serif for Headings */
-    --font-family-article: "Georgia", "Times New Roman", Times, serif; 
-    --font-family-heading: "Georgia", "Times New Roman", Times, serif;
+    --primary: #5d001e !important;
+    --paper-bg: #fdfbf7 !important; 
+    --font-header-news: 'Playfair Display', serif;
+    --font-body-news: 'Crimson Text', serif;
 }
 
-/* --- 2. LAYOUT: REMOVE "BLOG" FEEL --- */
+/* =========================================
+   2. GLOBAL LAYOUT
+   ========================================= */
+body {
+    font-family: "Arial", "Helvetica", sans-serif;
+    color: #111 !important;
+    background-color: var(--paper-bg) !important;
+}
 
-/* Remove the gap between the sidebar and content */
 .container {
     max-width: 1400px !important;
     gap: 0 !important;
 }
 
-/* Fix the Body Text */
-body {
-    font-family: "Arial", "Helvetica", sans-serif;
-    font-size: 16px;
-    color: #000000 !important; /* Force black text on body */
-}
-
-/* Make Headings Serif and Navy Blue */
-h1, h2, h3, h4 {
-    font-family: var(--font-family-heading);
-    color: var(--primary);
-    font-weight: 700;
-    margin-top: 1.5rem;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 0.5rem;
-}
-
-/* --- 3. SIDEBAR TRANSFORMATION (NAVY BLUE RAIL) --- */
-
-aside.sidebar {
-    background-color: var(--primary) !important; /* Navy Blue Background */
-    color: #ffffff !important;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    padding: 2rem;
-    border-right: 5px solid #ffffff; /* Added white separator line */
-}
-
-/* --- FIX: FORCE NAME & BIO TEXT TO WHITE --- */
-/* This specific block fixes the grey name issue */
-aside.sidebar .site-name, 
-aside.sidebar .site-name a {
-    color: #ffffff !important;
-    opacity: 1 !important;
-}
-
-/* Force Bio/Subtitle to White */
-aside.sidebar .subtitle, 
-aside.sidebar h2, 
-aside.sidebar p {
-    color: #ffffff !important;
-    opacity: 0.9 !important;
-}
-
-/* Force Social Icons (Scholar, Email) to White */
-aside.sidebar .social-menu li a {
-    color: #ffffff !important;
-}
-
-/* Sidebar Menu Links */
-aside.sidebar .menu li a {
-    color: #e0e0e0 !important;
-    font-family: "Arial", sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
-    border-radius: 0;
-}
-
-aside.sidebar .menu li a:hover,
-aside.sidebar .menu li.current a {
-    background: rgba(255,255,255,0.1) !important;
-    color: #fff !important;
-    border-left: 4px solid #fff;
-}
-
-/* Hide the "Hamburger" menu on desktop */
-.toggle-menu {
-    display: none !important;
-}
-
-/* --- 4. CONTENT AREA CLEANUP --- */
-main.main {
-    padding: 3rem !important;
-    background: #fff;
-    border-left: 1px solid #ddd;
-}
-
-/* Fix the Publication List styling */
-.article-content ul li {
-    list-style-type: square;
-    margin-bottom: 0.8rem;
-}
-
-/* --- 5. HIDE RIGHT SIDEBAR & EXPAND CONTENT --- */
-.right-sidebar {
-    display: none !important;
-    width: 0 !important;
-}
-
 @media (min-width: 1024px) {
     .container {
-        /* Force layout to 2 columns: [Sidebar 300px] [Content 1fr] */
         grid-template-columns: 320px 1fr !important;
         gap: 0px !important;
     }
 }
 
-/* --- FIX SIDEBAR SPACING --- */
-aside.sidebar .menu li {
-    margin-bottom: 15px !important; /* Adds space between items */
+/* =========================================
+   3. SIDEBAR (BALANCED & FIXED)
+   ========================================= */
+
+/* A. THE MAIN CONTAINER */
+aside, .sidebar, .left-sidebar, div[class*="sidebar"] {
+    background-color: #5d001e !important;
+    color: #ffffff !important;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    padding: 2rem 2rem !important; 
+    border-right: 5px solid #ffffff; 
+    z-index: 999;
+    overflow-y: hidden !important;
+    display: block !important;
 }
 
-aside.sidebar .menu li a {
+/* B. PROFILE NAME */
+aside .site-name a, .sidebar .site-name a {
+    font-family: var(--font-header-news) !important;
+    font-size: 1.9rem !important; 
+    font-weight: 700;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    line-height: 1.1;
+    display: block;
+    margin-bottom: 8px !important; 
+}
+
+/* C. BIO TEXT */
+aside p, .sidebar p, .site-description {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    font-size: 1.05rem !important; 
+    line-height: 1.3 !important;
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+    padding-top: 10px !important;
+    border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+/* D. SOCIAL ICONS */
+aside .social-menu, .sidebar .social-menu {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important; 
+    padding-top: 10px !important;
+    border-top: 1px solid rgba(255,255,255,0.2); 
+    display: flex;
+    gap: 12px;
+}
+aside .social-menu li a, .sidebar .social-menu li a {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* E. MENU CONTAINER */
+aside ul, .sidebar ul, aside .menu, .sidebar .menu {
+    margin-top: 0 !important; 
+    padding-left: 0 !important;
+    display: block !important; 
+}
+
+/* F. MENU ITEMS */
+aside ul li, .sidebar ul li, aside .menu li, .sidebar .menu li {
+    list-style: none !important;
+    margin-bottom: 2px !important; 
+    padding: 0 !important;
+    display: block !important; 
+}
+
+/* G. THE LINK ITSELF */
+aside ul li a, .sidebar ul li a, 
+aside .menu li a, .sidebar .menu li a {
+    font-family: "Arial", "Helvetica", sans-serif !important; 
+    font-size: 1.0rem !important;       
+    text-transform: uppercase !important;        
+    letter-spacing: 0.5px !important;             
+    font-weight: 700 !important;                 
+    color: #ffffff !important;
+    opacity: 0.9 !important; 
     display: flex;
     align-items: center;
-    gap: 15px; /* Adds space between Icon and Text */
-    line-height: 1.4;
-    padding: 5px 0;
+    gap: 15px;
+    padding: 10px 12px !important; 
+    border-radius: 4px !important; 
+    border: none !important;
+    text-decoration: none !important;
+    background: transparent !important; 
 }
 
-/* Fix Icon Sizing */
-aside.sidebar .menu li a svg {
-    width: 24px !important;
-    height: 24px !important;
-    min-width: 24px; /* Prevents icon from shrinking */
-}/* --- NUCLEAR FIX FOR WHITE ICONS --- */
-/* This targets every single part of the SVG icon to force it white */
-
-aside.sidebar .social-menu li a {
+/* H. ACTIVE STATE */
+aside li a:hover,
+aside li.current a,
+aside li.active a,
+aside .menu li.active a,
+.sidebar li.active a {
+    opacity: 1 !important;
     color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.15) !important; 
+    border: none !important;
 }
 
-aside.sidebar .social-menu li a svg,
-aside.sidebar .social-menu li a svg path,
-aside.sidebar .social-menu li a svg circle,
-aside.sidebar .social-menu li a svg rect,
-aside.sidebar .social-menu li a svg line,
-aside.sidebar .social-menu li a svg polyline {
-    fill: #ffffff !important;   /* Fills solid shapes like GitHub/Scholar */
-    stroke: #ffffff !important; /* Colors lines like Mail/Link */
-    color: #ffffff !important;  /* Backup text color */
-}
-
-/* Fix the Text Links in the Main Menu too */
-aside.sidebar .menu li a {
+/* I. ICONS */
+aside svg, .sidebar svg {
+    width: 22px !important; 
+    height: 22px !important;
     color: #ffffff !important;
-}
-
-aside.sidebar .menu li a svg {
     stroke: #ffffff !important;
-    fill: none !important; /* Menu icons are usually outlines */
+    fill: none !important;
 }
-/* --- FIX: COMPLETELY HIDE RELATED CONTENT (Title + Cards) --- */
-.related-content-wrapper, 
-.related-content--wrapper,
-aside.related-content {
-    display: none !important;
+aside .social-menu li a svg {
+    width: 26px !important;
+    height: 26px !important;
+    fill: #ffffff !important;   
+    stroke: none !important;
 }
-
-/* Extra safety: Hide the section title specifically if the above doesn't catch it */
-.section-title {
-    /* Only hide if it's inside a related-content block (handled by parent hiding), 
-       but if the theme puts it outside, we might need to target the specific area. 
-       The code above usually handles it for the Stack theme. */
-}
-/* --- FIX: MAKE SIDEBAR ICONS BRIGHT WHITE --- */
-.social-menu li a {
-    color: #ffffff !important; /* Sets the text/icon color to white */
-    opacity: 1 !important;     /* Removes the default dimming effect */
-}
-
-/* Ensure the SVG icons actually take the color */
-.social-menu li a svg {
-    fill: #ffffff !important;  /* For solid icons like ResearchGate */
-    stroke: #ffffff !important; /* For line icons like Email */
-}
-
-/* Fix for the Email icon specifically (so it doesn't turn into a solid blob) */
-.social-menu li a svg.feather {
+aside .social-menu li a svg.feather {
     fill: none !important;
     stroke: #ffffff !important;
+}
+
+/* KILL PSEUDO ELEMENTS */
+aside ul li::before, aside ul li::after,
+aside ul li a::before, aside ul li a::after,
+.sidebar ul li::before, .sidebar ul li::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* HIDE UNWANTED */
+.toggle-menu, .right-sidebar, .related-content-wrapper { display: none !important; }
+
+
+/* =========================================
+   4. CONTENT & NEWSPAPER STYLING
+   ========================================= */
+main.main {
+    padding: 3rem !important; 
+    background-color: var(--paper-bg) !important;
+    color: #1a1a1a !important; 
+    border-left: 1px solid #d4d1c9; 
+    min-height: 100vh;
+}
+
+.journal-page {
+    font-family: var(--font-body-news);
+    font-size: 1.25rem;
+    line-height: 1.7;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem 0 !important;
+}
+
+.journal-page p { text-align: justify; hyphens: auto; }
+
+/* FIX: Kill Borders on Generic Headers */
+.journal-page h1, .journal-page h2 {
+    font-family: var(--font-header-news) !important;
+    color: #111 !important;
+    text-align: center !important;
+    font-weight: 700;
+    border-left: none !important; /* Safety */
+}
+.journal-page h1 { font-size: 3.5rem; margin-bottom: 5px; }
+.journal-page h2 { 
+    font-size: 2rem; 
+    margin-top: 2.5em; 
+    border-bottom: 3px double #ccc !important; 
+    padding-bottom: 10px; 
+    color: #5d001e !important;
+}
+.journal-page h4 {
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+/* News & Chronicles (Home Widget) */
+.news-item {
+    display: flex; gap: 30px; align-items: center; 
+    padding: 30px 0; border-bottom: 1px solid #e0e0e0;
+}
+.news-date {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    min-width: 80px; height: 90px; border: 2px solid #5d001e; background-color: #fff;
+    flex-shrink: 0;
+}
+.news-date .day { font-family: "Georgia", serif; font-size: 2rem; font-weight: 700; color: #111; line-height: 1; }
+.news-date .month { font-family: "Arial", sans-serif; font-size: 0.75rem; text-transform: uppercase; color: #5d001e; margin-top: 5px; }
+.news-date .year { font-size: 0.65rem; color: #666; margin-top: 2px; }
+
+.news-content h3 {
+    font-family: var(--font-header-news); font-size: 1.6rem; 
+    color: #111; text-align: left !important; padding-left: 0 !important; margin-top: 0;
+}
+.news-content p { text-align: left !important; margin-bottom: 0; }
+
+/* Roll of Honor */
+.honor-roll { width: 100%; border-collapse: collapse; margin-top: 30px; font-family: var(--font-body-news); }
+.honor-roll th { border-bottom: 2px solid #5d001e; border-top: 2px solid #5d001e; padding: 15px 10px; text-align: left; text-transform: uppercase; font-size: 0.85rem; color: #5d001e; }
+.honor-roll td { border-bottom: 1px solid #d4d1c9; padding: 15px 10px; font-size: 1.1rem; }
+
+
+/* =========================================
+   PHASE 2: RESEARCH GRID STYLING
+   ========================================= */
+
+.research-intro {
+    font-family: var(--font-body-news);
+    font-size: 1.25rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+    text-align: justify;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 30px;
+}
+
+.research-intro .drop-cap {
+    float: left;
+    font-family: var(--font-header-news);
+    font-size: 4.5rem;
+    line-height: 0.8;
+    padding-right: 12px;
+    padding-top: 5px;
+    color: #5d001e;
+    font-weight: 700;
+}
+
+.research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.research-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 30px;
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.research-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(93, 0, 30, 0.1);
+    border-color: #5d001e;
+}
+
+.card-icon {
+    color: #5d001e;
+    margin-bottom: 20px;
+    background: #fdfbf7;
+    padding: 15px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.research-card h3 {
+    font-family: var(--font-header-news);
+    font-size: 1.4rem;
+    color: #111;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+
+.research-card p {
+    font-family: "Arial", sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* =========================================
+   PHASE 2B: PUBLICATIONS (FIXED - NO BLUE LINES)
+   ========================================= */
+
+/* 1. The Main Newspaper Header (Clean) */
+.newspaper-header {
+    text-align: center !important;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd !important;
+    
+    /* NUCLEAR FIX: Force remove any side borders */
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* Kill pseudo-elements that create blue lines */
+.newspaper-header::before,
+.newspaper-header::after {
+    display: none !important;
+    content: none !important;
+    width: 0 !important;
+}
+
+.newspaper-header h1 {
+    font-family: var(--font-header-news); 
+    font-size: 3.5rem;
+    color: #111;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    font-weight: 700;
+    text-align: center !important;
+    
+    /* SAFETY for H1 inside header */
+    border-left: none !important;
+    padding-left: 0 !important;
+}
+
+.newspaper-header h4 {
+    font-family: "Arial", sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+/* 2. Centered Intro */
+.pub-intro-centered {
+    text-align: center;
+    font-family: var(--font-body-news);
+    font-size: 1.3rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    color: #333;
+}
+
+/* 3. Centered Section Dividers (Fixed) */
+.section-divider {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    position: relative;
+    border: none !important; 
+}
+
+/* Kill vertical blue line */
+.section-divider::before {
+    display: none !important; 
+}
+
+/* Re-add horizontal line manually */
+.section-divider::after {
+    display: block !important;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #e0e0e0;
+    z-index: 0;
+}
+
+.section-divider h2 {
+    font-family: var(--font-header-news);
+    font-size: 2.2rem;
+    color: #5d001e;
+    background-color: var(--paper-bg);
+    display: inline-block;
+    padding: 0 20px !important;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    
+    /* Important: Kill Border Left on Header */
+    border-left: none !important;
+    padding-left: 20px !important; /* Restore internal padding */
+}
+
+/* 4. Book Card (Refined) */
+.book-card {
+    display: flex;
+    gap: 40px;
+    background: #fff;
+    padding: 40px;
+    border: 1px solid #e0e0e0; 
+    border-radius: 2px;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.book-placeholder {
+    width: 140px;
+    height: 200px;
+    background-color: #5d001e;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: "Arial", sans-serif;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+}
+.book-placeholder span {
+    letter-spacing: 1px;
+    font-size: 1.2rem;
+}
+
+.book-details h3 {
+    font-family: var(--font-header-news);
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+    color: #111;
+    line-height: 1.2;
+    border: none !important; /* Safety check */
+    padding-left: 0 !important;
+}
+
+.book-details .authors {
+    font-family: "Arial", sans-serif;
+    color: #555;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+}
+
+.book-details .book-desc {
+    font-family: var(--font-body-news);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.pub-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #5d001e;
+    color: #5d001e !important;
+    text-decoration: none;
+    font-family: "Arial", sans-serif;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+.pub-btn:hover {
+    background-color: #5d001e;
+    color: #fff !important;
+}
+
+/* 5. Publication List */
+.pub-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.pub-item {
+    display: flex;
+    gap: 25px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 25px;
+}
+
+.pub-year {
+    font-family: var(--font-header-news);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #ccc; 
+    min-width: 60px;
+    text-align: right;
+    line-height: 1;
+}
+
+.pub-title {
+    font-family: var(--font-header-news);
+    font-size: 1.3rem;
+    color: #111;
+    margin-bottom: 5px;
+    line-height: 1.3;
+}
+
+.pub-meta {
+    font-family: "Arial", sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.pub-journal {
+    font-family: var(--font-body-news);
+    font-style: italic;
+    color: #444;
+    font-size: 1.1rem;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .newspaper-header h1 { font-size: 2.5rem; }
+    .book-card { flex-direction: column; align-items: center; text-align: center; }
+    .pub-item { flex-direction: column; gap: 5px; }
+    .pub-year { text-align: left; color: #5d001e; font-size: 1.2rem; }
+}
+
+/* =========================================
+   PHASE 2C: TEACHING PAGE STYLING
+   ========================================= */
+
+/* 1. The Grid (Reuse logic from Research) */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 2. The Course Card */
+.course-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: stretch; /* Ensures full height */
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-color: #5d001e;
+}
+
+/* 3. The Course Number (Left Sidebar of Card) */
+.course-number {
+    background-color: #5d001e;
+    color: #fff;
+    font-family: "Arial", sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    writing-mode: vertical-lr; /* Vertical Text */
+    transform: rotate(180deg); /* Flip it so it reads bottom-up */
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 2px;
+    border-top-right-radius: 4px; /* Since it's rotated */
+    border-bottom-right-radius: 4px;
+}
+
+/* 4. Course Details */
+.course-content {
+    padding: 20px 25px;
+    flex: 1;
+}
+
+.course-content h3 {
+    font-family: var(--font-header-news);
+    font-size: 1.4rem;
+    color: #111;
+    margin: 0 0 8px 0;
+    border: none !important; /* Safety against blue lines */
+}
+
+.course-content p {
+    font-family: "Arial", sans-serif;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
+/* =========================================
+   PHASE 2D: RESEARCH GROUP STYLING
+   ========================================= */
+
+/* 1. Student Grid */
+.student-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto 50px auto;
+}
+
+/* 2. Student Card */
+.student-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 30px;
+    border-radius: 4px;
+    text-align: center;
+    transition: transform 0.2s, border-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.student-card:hover {
+    transform: translateY(-5px);
+    border-color: #5d001e;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* 3. Student Photo (Placeholder Circle) */
+.student-photo {
+    width: 100px;
+    height: 100px;
+    background-color: #fdfbf7;
+    border: 2px solid #5d001e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    font-family: var(--font-header-news);
+    font-size: 1.5rem;
+    color: #5d001e;
+    font-weight: 700;
+}
+
+/* 4. Student Info */
+.student-info h3 {
+    font-family: var(--font-header-news);
+    font-size: 1.3rem;
+    color: #111;
+    margin: 0 0 5px 0;
+    border: none !important;
+}
+
+.student-info .role {
+    font-family: "Arial", sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.student-info .topic {
+    font-family: var(--font-body-news);
+    font-size: 1rem;
+    color: #444;
+    font-style: italic;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* 5. Alumni List */
+.alumni-list {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: var(--font-body-news);
+    font-size: 1.15rem;
+}
+
+.alumni-list ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0;
+}
+
+.alumni-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.alumni-list strong {
+    color: #5d001e;
+}
+
+/* =========================================
+   PHASE 3: METRICS BANNER STYLING
+   ========================================= */
+
+.metrics-banner {
+    width: 100%;
+    background-color: #5d001e; /* Maroon */
+    color: #ffffff;
+    border-bottom: 5px solid #4a0018; /* Darker bottom lip */
+    margin-bottom: 40px;
+    padding: 25px 0;
+    font-family: "Arial", sans-serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.metrics-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.metric-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    justify-content: center;
+    position: relative;
+}
+
+.metric-group.border-left {
+    border-left: 1px solid rgba(255,255,255,0.2);
+    padding-left: 20px;
+}
+
+/* Icons */
+.metric-icon svg {
+    width: 32px;
+    height: 32px;
+    color: rgba(255,255,255,0.8);
+}
+
+.ranking-group .metric-icon svg {
+    color: #ffd700; /* Gold for ranking */
+    fill: rgba(255, 215, 0, 0.2);
+}
+
+/* Typography */
+.metric-data h3 {
+    font-family: var(--font-header-news); /* Playfair Display */
+    font-size: 1.2rem;
+    margin: 0 0 5px 0;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.5px;
+    border: none !important; /* Ensure no lines here */
+}
+
+.metric-data h3.highlight-gold {
+    color: #ffd700;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.stat-row {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.stat-row strong {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-right: 3px;
+}
+
+.divider {
+    margin: 0 8px;
+    opacity: 0.4;
+    font-size: 0.8rem;
+}
+
+.ranking-source {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    margin: 0;
+    font-style: italic;
+    max-width: 250px;
+    line-height: 1.3;
+}
+
+/* Link Button */
+.metric-link {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    margin-left: 15px;
+    transition: all 0.2s;
+}
+
+.metric-link:hover {
+    background: #fff;
+    color: #5d001e;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .metrics-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    .metric-group {
+        width: 100%;
+        justify-content: flex-start;
+        border-left: none !important;
+        padding-left: 0 !important;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .metric-group:last-child {
+        border-bottom: none;
+    }
+}
+
+/* =========================================
+   PHASE 4: MOBILE RESPONSIVENESS
+   ========================================= */
+
+/* 1. Mobile Menu Button (Hidden by default on Desktop) */
+.mobile-menu-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 2000;
+    background: #5d001e;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.close-sidebar-btn {
+    display: none; /* Only show on mobile */
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* 2. MEDIA QUERY: When screen is smaller than 1024px (Tablets/Phones) */
+@media (max-width: 1024px) {
+    
+    /* Hide the grid layout */
+    .container {
+        display: block !important; /* Stack sidebar and content */
+    }
+
+    /* Transform Sidebar into a Slide-out Drawer */
+    aside, .sidebar, .left-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: -320px; /* Hide off-screen to the left */
+        width: 300px !important;
+        height: 100vh !important;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+    }
+
+    /* The Class to Slide it In */
+    aside.active {
+        left: 0 !important; /* Bring it back */
+    }
+
+    /* Show the Buttons */
+    .mobile-menu-btn { display: block; }
+    .close-sidebar-btn { display: block; }
+
+    /* Adjust Main Content to fill screen */
+    main.main {
+        padding: 4rem 1.5rem 2rem 1.5rem !important; /* Top padding for button */
+        border-left: none !important;
+    }
+
+    /* Fix Carousel Height on Phone */
+    .hero-carousel {
+        height: 250px !important;
+    }
+
+    /* Fix Metrics Banner on Phone */
+    .metrics-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    .metric-group.border-left {
+        border-left: none !important;
+        padding-left: 0 !important;
+    }
+    
+    /* Fix Newspaper Header Size */
+    .newspaper-header h1 {
+        font-size: 2.5rem !important;
+    }
+}
+
+/* =========================================
+   PHASE 5: THE PROFESSIONAL FOOTER
+   ========================================= */
+
+.site-footer {
+    background-color: #5d001e; /* Maroon Background */
+    color: #fff;
+    padding: 40px 20px;
+    margin-top: 60px;
+    border-top: 5px solid #4a0018; /* Darker top border */
+    font-family: "Arial", sans-serif;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+/* Left Column */
+.footer-left .univ-title {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.footer-left .univ-address {
+    margin: 0;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+}
+
+/* Center Column */
+.footer-center {
+    text-align: center;
+}
+.footer-center p { margin: 0; line-height: 1.4; }
+.footer-center .rights { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+
+/* Right Column */
+.footer-right {
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.footer-right a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+.footer-right a:hover { opacity: 1; text-decoration: underline; }
+.footer-right .sep { opacity: 0.3; }
+
+.developer-credit {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+    background: rgba(0,0,0,0.2);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .site-footer { text-align: center; }
+    .footer-content { flex-direction: column; gap: 25px; }
+    .footer-right { justify-content: center; }
 }

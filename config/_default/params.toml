@@ -2,7 +2,7 @@
 # Pages placed under these sections will be shown on homepage.
 mainSections = ["post"]
 rssFullContent = true
-favicon = "/favicon.png"
+favicon = "/favicon.svg"
 
 [footer]
     since = 2025
@@ -65,3 +65,28 @@ favicon = "/favicon.png"
 [comments]
     enabled = false
     provider = "disqus"
+
+
+# --- RESEARCH METRICS (Update these numbers manually) ---
+[metrics]
+    enable = true
+    
+    # Google Scholar
+    [metrics.google]
+        pubs = "285"
+        cites = "4,254"
+        h_index = "34"
+        url = "https://scholar.google.com.pk/citations?user=G3jJymsAAAAJ&hl=en"
+
+    # Web of Science
+    [metrics.wos]
+        pubs = "255"
+        cites = "3,046"
+        h_index = "29"
+        # If you have a WOS profile link, put it here, else leave empty
+        url = "#"
+
+    # Ranking / Awards
+    [metrics.ranking]
+        text = "Ranked 7th in Physics"
+        source = "Productive Scientists of Pakistan Directory (2017)"

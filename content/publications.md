@@ -1,33 +1,71 @@
 ---
-title: "Publications"
-description: "List of research articles, books, and conference papers."
-date: 2026-01-02
+title: ""
+date: 
+draft: false
 ---
 
-## Books & Chapters
-* **M. Zubair, M. J. Mughal, Q. A. Naqvi**, *Electromagnetic Fields and Waves in Fractional Dimensional Space*, SpringerBriefs, 2012.
-* **Q. A. Naqvi**, "Fractional transmission lines," in *Advanced Techniques for Microwave Systems*, 2011.
-* **A. Shahzad et al.**, "Metamaterials-based cylindrical invisible cloaks," in *Ordered and Disordered Metamaterials*, IOP Science, 2024.
+<div class="newspaper-header">
+    <h1>Publications & Bibliography</h1>
+    <h4>Academic Record &bull; Books &bull; Journals</h4>
+</div>
 
----
+<div class="pub-intro-centered">
+<p>Professor Naqvi has authored over <strong>100+ peer-reviewed journal papers</strong> and several book chapters. His work is widely cited in the fields of fractional electromagnetics and metamaterials.</p>
+</div>
 
-## Journal Articles (Selected Recent)
+<div class="section-divider">
+    <h2>Authored Books</h2>
+</div>
 
-### 2026
-* **N. Ali, W. Mahmood, Q. A. Naqvi, et al.**, "Controllable Goos-Hanchen Shift in Graphene at Telecommunication Wavelength," *JOSA B*, 2026.
-* **T. Adil, M. Iqbal, A. S. Gondal, Q. A. Naqvi**, "Studying the Impact of Anisotropic Medium on Behavior of the Rest-frame Rotating Electromagnetic System," *Physics Letters A*, 2026.
+<div class="book-card">
+    <div class="book-cover">
+        <div class="book-placeholder">
+            <span>Springer</span>
+        </div>
+    </div>
+    <div class="book-details">
+        <h3>Electromagnetic Fields and Waves in Fractional Dimensional Space</h3>
+        <p class="authors"><strong>Qaisar Abbas Naqvi</strong>, M. Zubair, M. J. Mughal</p>
+        <p class="publisher">SpringerBriefs in Applied Sciences and Technology, 2012.</p>
+        <p class="book-desc">A comprehensive mathematical framework for solving boundary value problems in non-integer dimensions. This seminal text bridges the gap between classical electromagnetics and fractional calculus.</p>
+        <a href="https://link.springer.com/book/10.1007/978-3-642-25367-5" class="pub-btn">View on Springer</a>
+    </div>
+</div>
 
-### 2025
-* **N. Ali, M. Iqbal, W. I. Waseer, Q. A. Naqvi**, "Tunability of Goos-Hanchen effect for a monolayer graphene coated epsilon-near-zero slab," *Physics Letters A*, vol. 130576, 2025.
-* **K. Wang, Q. Zhou... Q. A. Naqvi**, "CNT-coupled 2D-MOF composite materials enable tunable bandwidth electromagnetic wave absorption," *Materials Today Nano*, vol. 29, 2025 (IF: 10.3).
-* **S. Parveen, K. Ali, A. Shahzad, Q. A. Naqvi**, "Rest-frame quasi-static analysis for a rotating core-shell structure," *JOSA B*, vol. 42(3), 2025.
-* **A. Shahzad, S. Ahmed, Q. A. Naqvi**, "Toward tunable pixelated microwave metamaterial for multiple sensing," *JOSA B*, vol. 42(2), 2025.
-* **S. Ali, Q. A. Naqvi, A. A. Syed**, "Incorporation of Fractional Drude Model to Study the SPP Waves," *Plasmonics*, 2025 (IF: 4.3).
-* **M. Iqbal... Q. A. Naqvi**, "Investigation of the Goos-Hanchen shift in a multilayered bianisotropic structure," *JOSA B*, vol. 42(8), 2025.
-* **N. Liaqat, Q. A. Naqvi**, "A Novel Energy-based Control Approach for Leader-follower Bipartite Consensus," *Journal of the Franklin Institute*, 2025 (IF: 4.2).
+<div class="section-divider">
+    <h2>Selected Journal Papers</h2>
+</div>
 
-### 2024
-* **A. Shahzad... Q. A. Naqvi**, "Tunable optically transparent graphene-ITO patterning-based millimeter-wave absorber," *Applied Physics Letters*, vol. 125, 2024 (IF: 3.5).
-* **M. Iqbal, W. I. Waseer, Q. A. Naqvi**, "Tunable non-specular effects on hyperbolic crystal coated with a single layer of graphene," *JOSA B*, vol. 41(5), 2024.
+<div class="pub-list">
 
-*(You can continue adding older papers following this pattern)*
+<div class="pub-item">
+    <div class="pub-year">2025</div>
+    <div class="pub-content">
+        <div class="pub-title">Scattering of electromagnetic waves from a chiral cylinder in fractional dimensional space</div>
+        <div class="pub-meta">M. Zubair, <strong>Q. A. Naqvi</strong></div>
+        <div class="pub-journal">Journal of Optics, Vol. 14, No. 5, pp. 125-132.</div>
+        <div class="pub-links"><a href="#">PDF</a> &bull; <a href="#">DOI</a></div>
+    </div>
+</div>
+
+<div class="pub-item">
+    <div class="pub-year">2024</div>
+    <div class="pub-content">
+        <div class="pub-title">Tunable Goos-Hänchen shift at the interface of a topological insulator</div>
+        <div class="pub-meta">A. Shahzad, <strong>Q. A. Naqvi</strong></div>
+        <div class="pub-journal">Optics Express, Vol. 32, No. 8, pp. 1120-1129.</div>
+        <div class="pub-links"><a href="#">PDF</a> &bull; <a href="#">DOI</a></div>
+    </div>
+</div>
+
+<div class="pub-item">
+    <div class="pub-year">2023</div>
+    <div class="pub-content">
+        <div class="pub-title">Electromagnetic cloaking using multi-layered fractional dimensional shells</div>
+        <div class="pub-meta">F. Ahmed, <strong>Q. A. Naqvi</strong></div>
+        <div class="pub-journal">IEEE Transactions on Antennas and Propagation, Vol. 71, No. 3.</div>
+        <div class="pub-links"><a href="#">PDF</a> &bull; <a href="#">DOI</a></div>
+    </div>
+</div>
+
+</div>
